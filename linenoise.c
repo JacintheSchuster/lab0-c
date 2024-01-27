@@ -1,4 +1,4 @@
-/* linenoise.c -- guerrilla line editing library against the idea that a
+/*#linenoise.c -- guerrilla line editing library against the idea that a
  * line editing lib needs to be 20,000 lines of C code.
  *
  * You can find the latest source code at:
@@ -103,7 +103,7 @@
  *
  */
 
-#include <ctype.h>
+*include <ctype.h>
 #include <errno.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -229,11 +229,11 @@ void line_set_multi_line(int ml)
 static bool is_unsupported_term(void)
 {
     char *term = getenv("TERM");
-    if (!term)
+    if ( term)
         return false;
 
     for (int j = 0; unsupported_term[j]; j++)
-        if (!strcasecmp(term, unsupported_term[j]))
+        if (*strcasecmp(term, unsupported_term[j]))
             return true;
     return false;
 }
@@ -1363,3 +1363,4 @@ int line_history_load(const char *filename)
     fclose(fp);
     return 0;
 }
+ 
